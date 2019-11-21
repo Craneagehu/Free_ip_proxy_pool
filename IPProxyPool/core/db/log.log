@@ -1,0 +1,7 @@
+2019-11-12 11:31:21 - mongo_pool.py [line:45] - WARNING - 已经存在的代理:{'ip': '14.207.175.80', 'port': '8213', 'protocol': -1, 'nick_type': -1, 'speed': -1, 'area': None, 'score': 50, 'disable_domains': []}
+2019-11-12 11:37:18 - mongo_pool.py [line:62] - INFO - 删除代理IP：{'ip': '14.207.175.80', 'port': '8888', 'protocol': -1, 'nick_type': -1, 'speed': -1, 'area': None, 'score': 50, 'disable_domains': []}
+2019-11-12 11:39:07 - mongo_pool.py [line:46] - WARNING - 已经存在的代理:{'ip': '14.207.175.80', 'port': '8888', 'protocol': -1, 'nick_type': -1, 'speed': -1, 'area': None, 'score': 50, 'disable_domains': []}
+2019-11-12 11:39:36 - mongo_pool.py [line:46] - WARNING - 已经存在的代理:{'ip': '14.207.175.80', 'port': '8888', 'protocol': -1, 'nick_type': -1, 'speed': -1, 'area': None, 'score': 50, 'disable_domains': []}
+2019-11-12 11:40:03 - mongo_pool.py [line:47] - WARNING - 已经存在的代理:{'ip': '14.207.175.80', 'port': '8888', 'protocol': -1, 'nick_type': -1, 'speed': -1, 'area': None, 'score': 50, 'disable_domains': []}
+2019-11-15 15:41:02 - mongo_pool.py [line:46] - WARNING - 已经存在的代理:{'ip': '14.207.175.80', 'port': '8888', 'protocol': -1, 'nick_type': -1, 'speed': -1, 'area': None, 'score': 50, 'disable_domains': []}
+2019-11-15 16:31:16 - mongo_pool.py [line:49] - WARNING - 已经存在的代理:{'ip': '14.207.175.80', 'port': '8888', 'protocol': -1, 'nick_type': -1, 'speed': -1, 'area': None, 'score': 50, 'disable_domains': []}

@@ -1,0 +1,494 @@
+2019-11-12 11:24:43 - connectionpool.py [line:206] - DEBUG - Starting new HTTP connection (1): 14.207.175.80:8213
+2019-11-12 11:24:50 - connectionpool.py [line:396] - DEBUG - http://14.207.175.80:8213 "GET http://httpbin.org.get/ HTTP/1.1" 503 1892
+2019-11-12 11:24:50 - connectionpool.py [line:815] - DEBUG - Starting new HTTPS connection (1): httpbin.org.get:443
+2019-11-12 11:25:01 - httpbin_validater.py [line:81] - ERROR - HTTPSConnectionPool(host='httpbin.org.get', port=443): Max retries exceeded with url: / (Caused by ProxyError('Cannot connect to proxy.', timeout('timed out')))
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 597, in urlopen
+    self._prepare_proxy(conn)
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 807, in _prepare_proxy
+    conn.connect()
+  File "E:\python37\lib\site-packages\urllib3\connection.py", line 324, in connect
+    self._tunnel()
+  File "E:\python37\lib\http\client.py", line 906, in _tunnel
+    (version, code, message) = response._read_status()
+  File "E:\python37\lib\http\client.py", line 257, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "E:\python37\lib\socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 641, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "E:\python37\lib\site-packages\urllib3\util\retry.py", line 399, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='httpbin.org.get', port=443): Max retries exceeded with url: / (Caused by ProxyError('Cannot connect to proxy.', timeout('timed out')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:/Users/MSI1/Desktop/IPProxyPool/core/proxy_validater/httpbin_validater.py", line 58, in __check_http_proxies
+    response = requests.get(test_url,headers = get_request_headers(),proxies=proxies,timeout = TEST_TIMEOUT)
+  File "E:\python37\lib\site-packages\requests\api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "E:\python37\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "E:\python37\lib\site-packages\requests\sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "E:\python37\lib\site-packages\requests\sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "E:\python37\lib\site-packages\requests\adapters.py", line 510, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='httpbin.org.get', port=443): Max retries exceeded with url: / (Caused by ProxyError('Cannot connect to proxy.', timeout('timed out')))
+2019-11-15 15:38:32 - connectionpool.py [line:206] - DEBUG - Starting new HTTP connection (1): 14.207.175.80:8213
+2019-11-15 15:38:42 - httpbin_validater.py [line:81] - ERROR - HTTPConnectionPool(host='14.207.175.80', port=8213): Max retries exceeded with url: http://httpbin.org.get/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000001742CB34CC0>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)'))
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "E:\python37\lib\site-packages\urllib3\util\connection.py", line 80, in create_connection
+    raise err
+  File "E:\python37\lib\site-packages\urllib3\util\connection.py", line 70, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 603, in urlopen
+    chunked=chunked)
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 355, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "E:\python37\lib\http\client.py", line 1229, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "E:\python37\lib\http\client.py", line 1275, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "E:\python37\lib\http\client.py", line 1224, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "E:\python37\lib\http\client.py", line 1016, in _send_output
+    self.send(msg)
+  File "E:\python37\lib\http\client.py", line 956, in send
+    self.connect()
+  File "E:\python37\lib\site-packages\urllib3\connection.py", line 183, in connect
+    conn = self._new_conn()
+  File "E:\python37\lib\site-packages\urllib3\connection.py", line 165, in _new_conn
+    (self.host, self.timeout))
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x000001742CB34CC0>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 641, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "E:\python37\lib\site-packages\urllib3\util\retry.py", line 399, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='14.207.175.80', port=8213): Max retries exceeded with url: http://httpbin.org.get/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000001742CB34CC0>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:/Users/MSI1/Desktop/IPProxyPool/core/proxy_validater/httpbin_validater.py", line 58, in __check_http_proxies
+    response = requests.get(test_url,headers = get_request_headers(),proxies=proxies,timeout = TEST_TIMEOUT)
+  File "E:\python37\lib\site-packages\requests\api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "E:\python37\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "E:\python37\lib\site-packages\requests\sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "E:\python37\lib\site-packages\requests\sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "E:\python37\lib\site-packages\requests\adapters.py", line 504, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='14.207.175.80', port=8213): Max retries exceeded with url: http://httpbin.org.get/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000001742CB34CC0>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)'))
+2019-11-15 15:38:42 - connectionpool.py [line:815] - DEBUG - Starting new HTTPS connection (1): httpbin.org.get:443
+2019-11-15 15:38:52 - httpbin_validater.py [line:81] - ERROR - HTTPSConnectionPool(host='httpbin.org.get', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x000001742C9E88D0>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)'))
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "E:\python37\lib\site-packages\urllib3\util\connection.py", line 80, in create_connection
+    raise err
+  File "E:\python37\lib\site-packages\urllib3\util\connection.py", line 70, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 597, in urlopen
+    self._prepare_proxy(conn)
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 807, in _prepare_proxy
+    conn.connect()
+  File "E:\python37\lib\site-packages\urllib3\connection.py", line 316, in connect
+    conn = self._new_conn()
+  File "E:\python37\lib\site-packages\urllib3\connection.py", line 165, in _new_conn
+    (self.host, self.timeout))
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.VerifiedHTTPSConnection object at 0x000001742C9E88D0>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 641, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "E:\python37\lib\site-packages\urllib3\util\retry.py", line 399, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='httpbin.org.get', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x000001742C9E88D0>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:/Users/MSI1/Desktop/IPProxyPool/core/proxy_validater/httpbin_validater.py", line 58, in __check_http_proxies
+    response = requests.get(test_url,headers = get_request_headers(),proxies=proxies,timeout = TEST_TIMEOUT)
+  File "E:\python37\lib\site-packages\requests\api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "E:\python37\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "E:\python37\lib\site-packages\requests\sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "E:\python37\lib\site-packages\requests\sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "E:\python37\lib\site-packages\requests\adapters.py", line 504, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='httpbin.org.get', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x000001742C9E88D0>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)'))
+2019-11-19 11:29:38 - connectionpool.py [line:206] - DEBUG - Starting new HTTP connection (1): 14.207.175.80:8213
+2019-11-19 11:29:48 - httpbin_validator.py [line:81] - ERROR - HTTPConnectionPool(host='14.207.175.80', port=8213): Max retries exceeded with url: http://httpbin.org.get/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000001B246533550>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)'))
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "E:\python37\lib\site-packages\urllib3\util\connection.py", line 80, in create_connection
+    raise err
+  File "E:\python37\lib\site-packages\urllib3\util\connection.py", line 70, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 603, in urlopen
+    chunked=chunked)
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 355, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "E:\python37\lib\http\client.py", line 1229, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "E:\python37\lib\http\client.py", line 1275, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "E:\python37\lib\http\client.py", line 1224, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "E:\python37\lib\http\client.py", line 1016, in _send_output
+    self.send(msg)
+  File "E:\python37\lib\http\client.py", line 956, in send
+    self.connect()
+  File "E:\python37\lib\site-packages\urllib3\connection.py", line 183, in connect
+    conn = self._new_conn()
+  File "E:\python37\lib\site-packages\urllib3\connection.py", line 165, in _new_conn
+    (self.host, self.timeout))
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x000001B246533550>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 641, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "E:\python37\lib\site-packages\urllib3\util\retry.py", line 399, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='14.207.175.80', port=8213): Max retries exceeded with url: http://httpbin.org.get/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000001B246533550>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:/Users/MSI1/Desktop/IPProxyPool/core/proxy_validate/httpbin_validator.py", line 58, in __check_http_proxies
+    response = requests.get(test_url,headers = get_request_headers(),proxies=proxies,timeout = TEST_TIMEOUT)
+  File "E:\python37\lib\site-packages\requests\api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "E:\python37\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "E:\python37\lib\site-packages\requests\sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "E:\python37\lib\site-packages\requests\sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "E:\python37\lib\site-packages\requests\adapters.py", line 504, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='14.207.175.80', port=8213): Max retries exceeded with url: http://httpbin.org.get/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000001B246533550>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)'))
+2019-11-19 11:29:48 - connectionpool.py [line:815] - DEBUG - Starting new HTTPS connection (1): httpbin.org.get:443
+2019-11-19 11:29:58 - httpbin_validator.py [line:81] - ERROR - HTTPSConnectionPool(host='httpbin.org.get', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x000001B2463E8908>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)'))
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "E:\python37\lib\site-packages\urllib3\util\connection.py", line 80, in create_connection
+    raise err
+  File "E:\python37\lib\site-packages\urllib3\util\connection.py", line 70, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 597, in urlopen
+    self._prepare_proxy(conn)
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 807, in _prepare_proxy
+    conn.connect()
+  File "E:\python37\lib\site-packages\urllib3\connection.py", line 316, in connect
+    conn = self._new_conn()
+  File "E:\python37\lib\site-packages\urllib3\connection.py", line 165, in _new_conn
+    (self.host, self.timeout))
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.VerifiedHTTPSConnection object at 0x000001B2463E8908>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 641, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "E:\python37\lib\site-packages\urllib3\util\retry.py", line 399, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='httpbin.org.get', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x000001B2463E8908>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:/Users/MSI1/Desktop/IPProxyPool/core/proxy_validate/httpbin_validator.py", line 58, in __check_http_proxies
+    response = requests.get(test_url,headers = get_request_headers(),proxies=proxies,timeout = TEST_TIMEOUT)
+  File "E:\python37\lib\site-packages\requests\api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "E:\python37\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "E:\python37\lib\site-packages\requests\sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "E:\python37\lib\site-packages\requests\sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "E:\python37\lib\site-packages\requests\adapters.py", line 504, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='httpbin.org.get', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x000001B2463E8908>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)'))
+2019-11-20 16:45:15 - connectionpool.py [line:206] - DEBUG - Starting new HTTP connection (1): 14.207.175.80:8213
+2019-11-20 16:45:25 - httpbin_validator.py [line:81] - ERROR - HTTPConnectionPool(host='14.207.175.80', port=8213): Max retries exceeded with url: http://httpbin.org/get (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000001D084684A58>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)'))
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "E:\python37\lib\site-packages\urllib3\util\connection.py", line 80, in create_connection
+    raise err
+  File "E:\python37\lib\site-packages\urllib3\util\connection.py", line 70, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 603, in urlopen
+    chunked=chunked)
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 355, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "E:\python37\lib\http\client.py", line 1229, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "E:\python37\lib\http\client.py", line 1275, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "E:\python37\lib\http\client.py", line 1224, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "E:\python37\lib\http\client.py", line 1016, in _send_output
+    self.send(msg)
+  File "E:\python37\lib\http\client.py", line 956, in send
+    self.connect()
+  File "E:\python37\lib\site-packages\urllib3\connection.py", line 183, in connect
+    conn = self._new_conn()
+  File "E:\python37\lib\site-packages\urllib3\connection.py", line 165, in _new_conn
+    (self.host, self.timeout))
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x000001D084684A58>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 641, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "E:\python37\lib\site-packages\urllib3\util\retry.py", line 399, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='14.207.175.80', port=8213): Max retries exceeded with url: http://httpbin.org/get (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000001D084684A58>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:/Users/MSI1/Desktop/IPProxyPool/core/proxy_validate/httpbin_validator.py", line 58, in __check_http_proxies
+    response = requests.get(test_url,headers = get_request_headers(),proxies=proxies,timeout = TEST_TIMEOUT)
+  File "E:\python37\lib\site-packages\requests\api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "E:\python37\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "E:\python37\lib\site-packages\requests\sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "E:\python37\lib\site-packages\requests\sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "E:\python37\lib\site-packages\requests\adapters.py", line 504, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='14.207.175.80', port=8213): Max retries exceeded with url: http://httpbin.org/get (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x000001D084684A58>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)'))
+2019-11-20 16:45:25 - connectionpool.py [line:815] - DEBUG - Starting new HTTPS connection (1): httpbin.org:443
+2019-11-20 16:45:35 - httpbin_validator.py [line:81] - ERROR - HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x000001D084538BA8>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)'))
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "E:\python37\lib\site-packages\urllib3\util\connection.py", line 80, in create_connection
+    raise err
+  File "E:\python37\lib\site-packages\urllib3\util\connection.py", line 70, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 597, in urlopen
+    self._prepare_proxy(conn)
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 807, in _prepare_proxy
+    conn.connect()
+  File "E:\python37\lib\site-packages\urllib3\connection.py", line 316, in connect
+    conn = self._new_conn()
+  File "E:\python37\lib\site-packages\urllib3\connection.py", line 165, in _new_conn
+    (self.host, self.timeout))
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.VerifiedHTTPSConnection object at 0x000001D084538BA8>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 641, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "E:\python37\lib\site-packages\urllib3\util\retry.py", line 399, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x000001D084538BA8>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:/Users/MSI1/Desktop/IPProxyPool/core/proxy_validate/httpbin_validator.py", line 58, in __check_http_proxies
+    response = requests.get(test_url,headers = get_request_headers(),proxies=proxies,timeout = TEST_TIMEOUT)
+  File "E:\python37\lib\site-packages\requests\api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "E:\python37\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "E:\python37\lib\site-packages\requests\sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "E:\python37\lib\site-packages\requests\sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "E:\python37\lib\site-packages\requests\adapters.py", line 504, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x000001D084538BA8>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)'))
+2019-11-20 16:46:45 - connectionpool.py [line:206] - DEBUG - Starting new HTTP connection (1): 14.207.175.80:8213
+2019-11-20 16:46:55 - httpbin_validator.py [line:82] - ERROR - HTTPConnectionPool(host='14.207.175.80', port=8213): Max retries exceeded with url: http://httpbin.org/get (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x0000024171975898>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)'))
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "E:\python37\lib\site-packages\urllib3\util\connection.py", line 80, in create_connection
+    raise err
+  File "E:\python37\lib\site-packages\urllib3\util\connection.py", line 70, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 603, in urlopen
+    chunked=chunked)
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 355, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "E:\python37\lib\http\client.py", line 1229, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "E:\python37\lib\http\client.py", line 1275, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "E:\python37\lib\http\client.py", line 1224, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "E:\python37\lib\http\client.py", line 1016, in _send_output
+    self.send(msg)
+  File "E:\python37\lib\http\client.py", line 956, in send
+    self.connect()
+  File "E:\python37\lib\site-packages\urllib3\connection.py", line 183, in connect
+    conn = self._new_conn()
+  File "E:\python37\lib\site-packages\urllib3\connection.py", line 165, in _new_conn
+    (self.host, self.timeout))
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x0000024171975898>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 641, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "E:\python37\lib\site-packages\urllib3\util\retry.py", line 399, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='14.207.175.80', port=8213): Max retries exceeded with url: http://httpbin.org/get (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x0000024171975898>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:/Users/MSI1/Desktop/IPProxyPool/core/proxy_validate/httpbin_validator.py", line 59, in __check_http_proxies
+    response = requests.get(test_url,headers = get_request_headers(),proxies=proxies,timeout = TEST_TIMEOUT)
+  File "E:\python37\lib\site-packages\requests\api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "E:\python37\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "E:\python37\lib\site-packages\requests\sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "E:\python37\lib\site-packages\requests\sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "E:\python37\lib\site-packages\requests\adapters.py", line 504, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='14.207.175.80', port=8213): Max retries exceeded with url: http://httpbin.org/get (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x0000024171975898>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)'))
+2019-11-20 16:46:55 - connectionpool.py [line:815] - DEBUG - Starting new HTTPS connection (1): httpbin.org:443
+2019-11-20 16:47:05 - httpbin_validator.py [line:82] - ERROR - HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x0000024171828A90>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)'))
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "E:\python37\lib\site-packages\urllib3\util\connection.py", line 80, in create_connection
+    raise err
+  File "E:\python37\lib\site-packages\urllib3\util\connection.py", line 70, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 597, in urlopen
+    self._prepare_proxy(conn)
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 807, in _prepare_proxy
+    conn.connect()
+  File "E:\python37\lib\site-packages\urllib3\connection.py", line 316, in connect
+    conn = self._new_conn()
+  File "E:\python37\lib\site-packages\urllib3\connection.py", line 165, in _new_conn
+    (self.host, self.timeout))
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.VerifiedHTTPSConnection object at 0x0000024171828A90>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\python37\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "E:\python37\lib\site-packages\urllib3\connectionpool.py", line 641, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "E:\python37\lib\site-packages\urllib3\util\retry.py", line 399, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x0000024171828A90>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:/Users/MSI1/Desktop/IPProxyPool/core/proxy_validate/httpbin_validator.py", line 59, in __check_http_proxies
+    response = requests.get(test_url,headers = get_request_headers(),proxies=proxies,timeout = TEST_TIMEOUT)
+  File "E:\python37\lib\site-packages\requests\api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "E:\python37\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "E:\python37\lib\site-packages\requests\sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "E:\python37\lib\site-packages\requests\sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "E:\python37\lib\site-packages\requests\adapters.py", line 504, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /get (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x0000024171828A90>, 'Connection to 14.207.175.80 timed out. (connect timeout=10)'))
